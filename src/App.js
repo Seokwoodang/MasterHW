@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import Grandfather from './Grandfather';
+
 
 function App() {
+  let [count, Setcount] = useState([0,0,0,0,0]);
+  const OnclickBtn=()=>{
+    let arr=[...count];
+    arr=arr.map(value => Math.floor(Math.random()*100));
+    Setcount(arr);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Grandfather age={count}/><br/>
+      <button onClick={OnclickBtn}>랜덤나이</button>
+    </>
   );
 }
 
